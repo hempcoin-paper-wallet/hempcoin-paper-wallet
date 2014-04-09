@@ -6080,18 +6080,18 @@ color: #3d483a;
 		<div id="seedpoolarea"><textarea rows="16" cols="62" id="seedpool"></textarea></div>
 		<div id="testnet"></div>
 		<div class="menu" id="menu">
-			<div class="tab selected" id="singlewallet" onclick="ninja.tabSwitch(this);">Single Wallet</div>
-			<div class="tab" id="paperwallet" onclick="ninja.tabSwitch(this);">Paper Wallet</div>
-			<div class="tab" id="bulkwallet" onclick="ninja.tabSwitch(this);">Bulk Wallet</div>
-			<div class="tab" id="brainwallet" onclick="ninja.tabSwitch(this);">Brain Wallet</div>
-			<div class="tab" id="vanitywallet" onclick="ninja.tabSwitch(this);">Vanity Wallet</div>
-			<div class="tab" id="detailwallet" onclick="ninja.tabSwitch(this);">Wallet Details</div>
+			<div class="tab selected" id="singlewallet" onClick="ninja.tabSwitch(this);">Single Wallet</div>
+			<div class="tab" id="paperwallet" onClick="ninja.tabSwitch(this);">Paper Wallet</div>
+			<div class="tab" id="bulkwallet" onClick="ninja.tabSwitch(this);">Bulk Wallet</div>
+			<div class="tab" id="brainwallet" onClick="ninja.tabSwitch(this);">Brain Wallet</div>
+			<div class="tab" id="vanitywallet" onClick="ninja.tabSwitch(this);">Vanity Wallet</div>
+			<div class="tab" id="detailwallet" onClick="ninja.tabSwitch(this);">Wallet Details</div>
 		</div>
 		
 		<div id="generate">
 			<span id="generatelabelhempcoinaddress">Generating Hempcoin Address...</span><br />
 			<span id="generatelabelmovemouse">MOVE your mouse around to add some extra randomness... </span><span id="mousemovelimit"></span><br />
-			<span id="generatelabelkeypress">OR type some random characters into this textbox</span> <input type="text" id="generatekeyinput" onkeypress="ninja.seeder.seedKeyPress(event);" /><br />
+			<span id="generatelabelkeypress">OR type some random characters into this textbox</span> <input type="text" id="generatekeyinput" onKeyPress="ninja.seeder.seedKeyPress(event);" /><br />
 			<div id="seedpooldisplay"></div>
 		</div>
 
@@ -6099,8 +6099,8 @@ color: #3d483a;
 			<div id="singlearea" class="walletarea">
 				<div class="commands">
 					<div id="singlecommands" class="row">
-						<span><input type="button" id="newaddress" value="Generate New Address" onclick="ninja.wallets.singlewallet.generateNewAddressAndKey();" /></span>
-						<span class="print"><input type="button" name="print" value="Print" id="singleprint" onclick="window.print();" /></span>
+						<span><input type="button" id="newaddress" value="Generate New Address" onClick="ninja.wallets.singlewallet.generateNewAddressAndKey();" /></span>
+						<span class="print"><input type="button" name="print" value="Print" id="singleprint" onClick="window.print();" /></span>
 					</div>
 				</div>
 				<div id="keyarea" class="keyarea">
@@ -6138,7 +6138,7 @@ color: #3d483a;
 			<div id="paperarea">
 				<div class="commands">
 					<div id="papercommands" class="row">
-						<span><label id="paperlabelhideart" for="paperart">Hide Art?</label> <input type="checkbox" id="paperart" onchange="ninja.wallets.paperwallet.toggleArt(this);" /></span>
+						<span><label id="paperlabelhideart" for="paperart">Hide Art?</label> <input type="checkbox" id="paperart" onChange="ninja.wallets.paperwallet.toggleArt(this);" /></span>
                         <span>
                         	<label id="paperlabelhideart" for="paperart">Denomination</label>
                             <select id="denom" onChange="setUpOtherSelect()">
@@ -6173,11 +6173,11 @@ color: #3d483a;
 						}
 						</script>
 						<span><label id="paperlabeladdressestogenerate" for="paperlimit">Addresses to generate:</label> <input type="text" id="paperlimit" /></span>
-						<span><input type="button" id="papergenerate" value="Generate" onclick="ninja.wallets.paperwallet.build(document.getElementById('paperlimit').value * 1, document.getElementById('paperlimitperpage').value * 1, !document.getElementById('paperart').checked, document.getElementById('paperpassphrase').value);" /></span>
-						<span class="print"><input type="button" name="print" value="Print" id="paperprint" onclick="window.print();" /></span>
+						<span><input type="button" id="papergenerate" value="Generate" onClick="ninja.wallets.paperwallet.build(document.getElementById('paperlimit').value * 1, document.getElementById('paperlimitperpage').value * 1, !document.getElementById('paperart').checked, document.getElementById('paperpassphrase').value);" /></span>
+						<span class="print"><input type="button" name="print" value="Print" id="paperprint" onClick="window.print();" /></span>
 					</div>
 					<div id="paperadvancedcommands" class="row extra">
-						<span><label id="paperlabelencrypt" for="paperencrypt">BIP38 Encrypt?</label> <input type="checkbox" id="paperencrypt" onchange="ninja.wallets.paperwallet.toggleEncrypt(this);" /></span>
+						<span><label id="paperlabelencrypt" for="paperencrypt">BIP38 Encrypt?</label> <input type="checkbox" id="paperencrypt" onChange="ninja.wallets.paperwallet.toggleEncrypt(this);" /></span>
 						<span><label id="paperlabelBIPpassphrase" for="paperpassphrase">Passphrase:</label> <input type="text" id="paperpassphrase" /></span>
 						<span><label id="paperlabeladdressesperpage" for="paperlimitperpage">Addresses per page:</label> <input type="text" id="paperlimitperpage" /></span>
 					</div>
@@ -6191,8 +6191,8 @@ color: #3d483a;
 						<span><label id="bulklabelstartindex" for="bulkstartindex">Start index:</label> <input type="text" id="bulkstartindex" value="1" /></span>
 						<span><label id="bulklabelrowstogenerate" for="bulklimit">Rows to generate:</label> <input type="text" id="bulklimit" value="3" /></span>
 						<span><label id="bulklabelcompressed" for="bulkcompressed">Compressed addresses?</label> <input type="checkbox" id="bulkcompressed" /></span>
-						<span><input type="button" id="bulkgenerate" value="Generate" onclick="ninja.wallets.bulkwallet.buildCSV(document.getElementById('bulklimit').value * 1, document.getElementById('bulkstartindex').value * 1, document.getElementById('bulkcompressed').checked);" /> </span>
-						<span class="print"><input type="button" name="print" id="bulkprint" value="Print" onclick="window.print();" /></span>
+						<span><input type="button" id="bulkgenerate" value="Generate" onClick="ninja.wallets.bulkwallet.buildCSV(document.getElementById('bulklimit').value * 1, document.getElementById('bulkstartindex').value * 1, document.getElementById('bulkcompressed').checked);" /> </span>
+						<span class="print"><input type="button" name="print" id="bulkprint" value="Print" onClick="window.print();" /></span>
 					</div>
 				</div>
 				<div class="body">
@@ -6201,14 +6201,14 @@ color: #3d483a;
 				</div>
 				<div class="faqs">
 					<div id="bulkfaq1" class="faq"> 
-						<div id="bulkq1" class="question" onclick="ninja.wallets.bulkwallet.openCloseFaq(1);">
+						<div id="bulkq1" class="question" onClick="ninja.wallets.bulkwallet.openCloseFaq(1);">
 							<span id="bulklabelq1">Why should I use a Bulk Wallet to accept hempcoins on my website?</span>
 							<div id="bulke1" class="more"></div>
 						</div>
 						<div id="bulka1" class="answer">The traditional approach to accepting hempcoins on your website requires that you install the official hempcoin client daemon ("hempcoind"). Many website hosting packages don't support installing the hempcoin daemon. Also, running the hempcoin daemon on your web server means your private keys are hosted on the server and could get stolen if your web server is hacked. When using a Bulk Wallet you can upload only the hempcoin addresses and not the private keys to your web server. Then you don't have to worry about your hempcoin wallet being stolen if your web server is hacked. </div>
 					</div>
 					<div id="bulkfaq2" class="faq"> 
-						<div id="bulkq2" class="question" onclick="ninja.wallets.bulkwallet.openCloseFaq(2);">
+						<div id="bulkq2" class="question" onClick="ninja.wallets.bulkwallet.openCloseFaq(2);">
 							<span id="bulklabelq2">How do I use a Bulk Wallet to accept hempcoins on my website?</span>
 							<div id="bulke2" class="more"></div>
 						</div>
@@ -6229,14 +6229,14 @@ color: #3d483a;
 				<div id="braincommands" class="commands">
 					<div class="row">
 						<span id="brainlabelenterpassphrase" class="label"><label for="brainpassphrase">Enter Passphrase: </label></span>
-						<input tabindex="1" type="password" id="brainpassphrase" value="" onfocus="this.select();" onkeypress="if (event.keyCode == 13) ninja.wallets.brainwallet.view();" />
-						<span><label id="brainlabelshow" for="brainpassphraseshow">Show?</label> <input type="checkbox" id="brainpassphraseshow" onchange="ninja.wallets.brainwallet.showToggle(this);" /></span>
-						<span class="print"><input type="button" name="print" id="brainprint" value="Print" onclick="window.print();" /></span>
+						<input tabindex="1" type="password" id="brainpassphrase" value="" onFocus="this.select();" onKeyPress="if (event.keyCode == 13) ninja.wallets.brainwallet.view();" />
+						<span><label id="brainlabelshow" for="brainpassphraseshow">Show?</label> <input type="checkbox" id="brainpassphraseshow" onChange="ninja.wallets.brainwallet.showToggle(this);" /></span>
+						<span class="print"><input type="button" name="print" id="brainprint" value="Print" onClick="window.print();" /></span>
 					</div>
 					<div class="row extra">
 						<span class="label" id="brainlabelconfirm"><label for="brainpassphraseconfirm">Confirm Passphrase: </label></span>
-						<input tabindex="2" type="password" id="brainpassphraseconfirm" value="" onfocus="this.select();" onkeypress="if (event.keyCode == 13) ninja.wallets.brainwallet.view();" />
-						<span><input tabindex="3" type="button" id="brainview" value="View" onclick="ninja.wallets.brainwallet.view();" /></span>
+						<input tabindex="2" type="password" id="brainpassphraseconfirm" value="" onFocus="this.select();" onKeyPress="if (event.keyCode == 13) ninja.wallets.brainwallet.view();" />
+						<span><input tabindex="3" type="button" id="brainview" value="View" onClick="ninja.wallets.brainwallet.view();" /></span>
 						<span id="brainalgorithm" class="notes right">Algorithm: SHA256(passphrase)</span>
 					</div>
 					<div class="row extra"><span id="brainwarning"></span></div>
@@ -6260,9 +6260,9 @@ color: #3d483a;
 			</div>
 			
 			<div id="vanityarea" class="walletarea">
-				<div id="vanitystep1label" class="commands expandable" onclick="ninja.wallets.vanitywallet.openCloseStep(1);">
+				<div id="vanitystep1label" class="commands expandable" onClick="ninja.wallets.vanitywallet.openCloseStep(1);">
 					<span><label id="vanitylabelstep1">Step 1 - Generate your "Step1 Key Pair"</label> <input type="button" id="vanitynewkeypair" 
-						value="Generate" onclick="ninja.wallets.vanitywallet.generateKeyPair();" /></span>
+						value="Generate" onClick="ninja.wallets.vanitywallet.generateKeyPair();" /></span>
 					<div id="vanitystep1icon" class="more"></div>
 				</div>
 				<div id="vanitystep1area">
@@ -6277,7 +6277,7 @@ color: #3d483a;
 						<br /><div class="notes" id="vanitylabelstep1privnotes">Copy and paste the above Private Key field into a text file. Ideally save to an encrypted drive. You will need this to retrieve the Hempcoin Private Key once the Pool has found your prefix.</div>
 					</div>
 				</div>
-				<div id="vanitystep2label" class="expandable" onclick="ninja.wallets.vanitywallet.openCloseStep(2);">
+				<div id="vanitystep2label" class="expandable" onClick="ninja.wallets.vanitywallet.openCloseStep(2);">
 					<span id="vanitylabelstep2calculateyourvanitywallet">Step 2 - Calculate your Vanity Wallet</span>
 					<div id="vanitystep2icon" class="more"></div>
 				</div>
@@ -6286,17 +6286,17 @@ color: #3d483a;
 						<span id="vanitylabelenteryourpart">Enter Your Part Private Key (generated in Step 1 above and previously saved):</span>
 						<br /><span class="notes" id="vanitylabelnote1">[NOTE: this input box can accept a public key or private key]</span>
 					</div>
-					<div><textarea id="vanityinput1" rows="2" cols="90" onfocus="this.select();"></textarea></div>
+					<div><textarea id="vanityinput1" rows="2" cols="90" onFocus="this.select();"></textarea></div>
 					<div>
 						<span id="vanitylabelenteryourpoolpart">Enter Pool Part Private Key (from Vanity Pool):</span>
 						<br /><span class="notes" id="vanitylabelnote2">[NOTE: this input box can accept a public key or private key]</span>
 					</div>
-					<div><textarea id="vanityinput2" rows="2" cols="90" onfocus="this.select();"></textarea></div>
+					<div><textarea id="vanityinput2" rows="2" cols="90" onFocus="this.select();"></textarea></div>
 					<div>
 						<label for="vanityradioadd" id="vanitylabelradioadd">Add</label> <input type="radio" id="vanityradioadd" name="vanityradio" value="add" checked />
 						<label for="vanityradiomultiply" id="vanitylabelradiomultiply">Multiply</label> <input type="radio" id="vanityradiomultiply" name="vanityradio" value="multiply" />
 					</div>
-					<div><input type="button" id="vanitycalc" value="Calculate Vanity Wallet" onclick="ninja.wallets.vanitywallet.addKeys();" /></div>
+					<div><input type="button" id="vanitycalc" value="Calculate Vanity Wallet" onClick="ninja.wallets.vanitywallet.addKeys();" /></div>
 				</div>
 				<div id="vanitystep2area">
 					<div>
@@ -6322,15 +6322,15 @@ color: #3d483a;
 			<div id="detailarea" class="walletarea">	
 				<div id="detailcommands" class="commands">
 					<span><label id="detaillabelenterprivatekey" for="detailprivkey">Enter Private Key</label></span>
-					<input type="text" id="detailprivkey" value="" onfocus="this.select();" onkeypress="if (event.keyCode == 13) ninja.wallets.detailwallet.viewDetails();" />
-					<span><input type="button" id="detailview" value="View Details" onclick="ninja.wallets.detailwallet.viewDetails();" /></span>
-					<span class="print"><input type="button" name="print" id="detailprint" value="Print" onclick="window.print();" /></span>
+					<input type="text" id="detailprivkey" value="" onFocus="this.select();" onKeyPress="if (event.keyCode == 13) ninja.wallets.detailwallet.viewDetails();" />
+					<span><input type="button" id="detailview" value="View Details" onClick="ninja.wallets.detailwallet.viewDetails();" /></span>
+					<span class="print"><input type="button" name="print" id="detailprint" value="Print" onClick="window.print();" /></span>
 					<div class="row extra">
 						<span><label id="detailkeyformats">Key Formats: WIF, WIFC, HEX, B64, B6, MINI, BIP38</label></span>
 					</div>
 					<div id="detailbip38commands">
-						<span><label id="detaillabelpassphrase">Enter BIP38 Passphrase</label> <input type="text" id="detailprivkeypassphrase" value="" onfocus="this.select();" onkeypress="if (event.keyCode == 13) ninja.wallets.detailwallet.viewDetails();" /></span>
-						<span><input type="button" id="detaildecrypt" value="Decrypt BIP38" onclick="ninja.wallets.detailwallet.viewDetails();" /></span>
+						<span><label id="detaillabelpassphrase">Enter BIP38 Passphrase</label> <input type="text" id="detailprivkeypassphrase" value="" onFocus="this.select();" onKeyPress="if (event.keyCode == 13) ninja.wallets.detailwallet.viewDetails();" /></span>
+						<span><input type="button" id="detaildecrypt" value="Decrypt BIP38" onClick="ninja.wallets.detailwallet.viewDetails();" /></span>
 					</div>
 				</div>
 				<div id="detailkeyarea">
@@ -6397,7 +6397,7 @@ color: #3d483a;
 				</div>
 				<div class="faqs">
 					<div id="detailfaq1" class="faq"> 
-						<div id="detailq1" class="question" onclick="ninja.wallets.detailwallet.openCloseFaq(1);">
+						<div id="detailq1" class="question" onClick="ninja.wallets.detailwallet.openCloseFaq(1);">
 							<span id="detaillabelq1">How do I make a wallet using dice? What is B6?</span>
 							<div id="detaile1" class="more"></div>
 						</div>
@@ -6783,7 +6783,7 @@ ninja.seeder = {
 	// number of mouse movements to wait for
 	seedLimit: (function () {
 		var num = Crypto.util.randomBytes(12)[11];
-		return 1;
+		//return 1;
 		return 200 + Math.floor(num);
 	})(),
 
